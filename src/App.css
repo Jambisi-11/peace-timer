@@ -1,0 +1,137 @@
+.cs-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  overflow: visible;
+  color: rgb(206, 206, 211);
+}
+
+/* Gear icon */
+.cs-gear {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #eb0707;
+  z-index: 50;
+}
+
+/* Operator panel */
+.cs-controls {
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+  border-radius: 8px;
+  color: #5759da;
+  z-index: 51; /* higher than gear and timer */
+  max-height: 80vh; /* allow scrolling if too tall */
+  overflow-y: auto;
+}
+
+.cs-controls .row {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.file-label input {
+  display: none;
+}
+
+/* Circular timer */
+.cs-center {
+  position: relative;
+  width: 260px;
+  height: 260px;
+}
+
+.progress-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.cs-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cs-time {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #dd1111;
+}
+
+.cs-sub {
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  opacity: 0.6;
+  margin-top: 5px;
+}
+.cs-logo {
+  position: absolute;
+  width: 260px; /* slightly smaller to fit inside the ring */
+  height: 260px;
+  opacity: 0.25;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  object-fit: cover;
+
+  /* 🔥 Make the image stay inside a perfect circle */
+  clip-path: circle(50%);
+}
+
+@media (max-width: 500px) {
+  .cs-time {
+    font-size: 2.5rem;
+  }
+  .cs-sub {
+    font-size: 0.7rem;
+  }
+}
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+.cs-caption {
+  margin-top: 16px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ff3333; /* red for alert */
+  animation: blink 1s infinite;
+}
+
+.cs-warning {
+  font-size: 1.2rem;
+  color: #ff6666;
+  margin-top: 10px;
+  font-weight: bolder;
+  background-color: rgb(25, 39, 3);
+  
+}
